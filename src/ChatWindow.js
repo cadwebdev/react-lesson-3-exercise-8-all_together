@@ -12,7 +12,10 @@ class ChatWindow extends Component {
         <h2>Super Awesome Chat</h2>
         <div className="name sender">{username}</div>
         <MessageWindow username={username} messages={messages} />
-        <NewMessageContainer />
+        <NewMessageContainer
+          username={username}
+          newMessage={this.props.newMessage}
+        />
       </div>
     )
   }

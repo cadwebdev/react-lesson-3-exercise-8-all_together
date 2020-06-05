@@ -20,6 +20,12 @@ class App extends Component {
     ],
   }
 
+  newMessage = (username, text) => {
+    this.setState((oldState) => ({
+      messages: [...oldState.messages, { username: username, text: text }],
+    }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -31,10 +37,12 @@ class App extends Component {
           <ChatWindow
             username={users[0].username}
             messages={this.state.messages}
+            newMessage={this.newMessage}
           />
           <ChatWindow
             username={users[1].username}
             messages={this.state.messages}
+            newMessage={this.newMessage}
           />
         </div>
       </div>
