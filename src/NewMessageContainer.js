@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 class NewMessageContainer extends Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    newMessage: PropTypes.func.isRequired,
+  }
+
   state = {
     newMessage: '',
   }

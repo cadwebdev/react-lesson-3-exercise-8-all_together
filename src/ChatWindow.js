@@ -1,23 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
 import MessageWindow from './MessageWindow'
 import NewMessageContainer from './NewMessageContainer'
+import PropTypes from 'prop-types'
 
-class ChatWindow extends Component {
-  render() {
-    const username = this.props.username
-    const messages = this.props.messages
-
-    return (
-      <div className="chat-window">
-        <h2>Super Awesome Chat</h2>
-        <div className="name sender">{username}</div>
-        <MessageWindow username={username} messages={messages} />
-        <NewMessageContainer
-          username={username}
-          newMessage={this.props.newMessage}
-        />
-      </div>
-    )
-  }
+const ChatWindow = (props) => {
+  return (
+    <div className="chat-window">
+      <h2>Super Awesome Chat</h2>
+      <div className="name sender">{props.username}</div>
+      <MessageWindow username={props.username} messages={props.messages} />
+      <NewMessageContainer
+        username={props.username}
+        newMessage={props.newMessage}
+      />
+    </div>
+  )
 }
+ChatWindow.propTypes = {
+  username: PropTypes.string.isRequired,
+  messages: PropTypes.array.isRequired,
+  newMessage: PropTypes.func.isRequired,
+}
+
 export default ChatWindow
